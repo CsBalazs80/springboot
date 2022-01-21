@@ -1,7 +1,7 @@
 package com.demo.repository;
 
-import com.demo.model.User;
-import com.demo.persistence.UserRepository;
+import com.demo.model.Client;
+import com.demo.persistence.ClientRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.*;
 class UserRepositoryTest {
 
     @Autowired
-    private UserRepository userRepository;
+    private ClientRepository userRepository;
 
     @Test
     void nonEmptyTest(){
@@ -29,7 +29,7 @@ class UserRepositoryTest {
     void readCheck(){
         //Given SQL ran
         //When
-        List<User> users = userRepository.getUserByName("Sandokan");
+        List<Client> users = userRepository.getUserByName("Sandokan");
         //Then
         assertThat(users).isNotEmpty();
         assertThat(users.get(0)).isNotNull();
@@ -42,7 +42,7 @@ class UserRepositoryTest {
     void modifyCheck(){
         //Given SQL ran
         //When
-        User user = userRepository.findById(1L).orElse(null);
+        Client user = userRepository.findById(1L).orElse(null);
         assertThat(user).isNotNull();
 
         user.setEmail("sandokan@america.com");

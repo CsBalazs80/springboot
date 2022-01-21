@@ -1,8 +1,8 @@
 package com.demo.service;
 
-import com.demo.dto.UserDTO;
-import com.demo.mapper.UserMapper;
-import com.demo.persistence.UserRepository;
+import com.demo.dto.ClientDTO;
+import com.demo.mapper.ClientMapper;
+import com.demo.persistence.ClientRepository;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,12 +13,12 @@ import java.util.stream.Collectors;
 @Service
 public class UserService {
 
-   private final UserMapper USER_MAPPER = Mappers.getMapper(UserMapper.class);
+   private final ClientMapper USER_MAPPER = Mappers.getMapper(ClientMapper.class);
 
     @Autowired
-    private UserRepository userRepository;
+    private ClientRepository userRepository;
 
-    public List<UserDTO> getUserByFullName(String fullName) {
+    public List<ClientDTO> getUserByFullName(String fullName) {
         return userRepository.getUserByName(fullName).stream()
                 .map(USER_MAPPER::toDTO)
                 .collect(Collectors.toList());
