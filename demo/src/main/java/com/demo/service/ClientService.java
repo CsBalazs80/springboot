@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class UserService {
+public class ClientService {
 
    private final ClientMapper USER_MAPPER = Mappers.getMapper(ClientMapper.class);
 
@@ -19,8 +19,14 @@ public class UserService {
     private ClientRepository userRepository;
 
     public List<ClientDTO> getUserByFullName(String fullName) {
-        return userRepository.getUserByName(fullName).stream()
+        return userRepository.getClientByName(fullName).stream()
                 .map(USER_MAPPER::toDTO)
                 .collect(Collectors.toList());
     }
+
+    public void saveClient(ClientDTO client) {
+        // use the conversion like previous way, userRepository provices CRUD
+    }
+
+    // Also implement delete on demand
 }

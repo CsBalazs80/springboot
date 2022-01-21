@@ -1,4 +1,4 @@
-INSERT INTO USER
+INSERT INTO CLIENT
 (id,
  name,
  email)

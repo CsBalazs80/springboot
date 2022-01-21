@@ -1,25 +1,28 @@
 package com.demo.rest;
 
-import com.demo.dto.UserDTO;
-import com.demo.service.UserService;
+import com.demo.dto.ClientDTO;
+import com.demo.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/user")
-public class UserController {
+public class ClientController {
 
     @Autowired
-    private UserService userService;
+    private ClientService userService;
 
     @GetMapping("/by-name/{fullName}")
-    List<UserDTO> getUserByFullName(@PathVariable String fullName) {
+    public List<ClientDTO> getUserByFullName(@PathVariable String fullName) {
         return userService.getUserByFullName(fullName);
     }
+
+    @PostMapping()
+    public void saveClient(ClientDTO client) {
+        userService.saveClient(client);
+    }
+
+    // Also implement delete, other methods, rest services on demand
 }

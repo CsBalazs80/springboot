@@ -10,4 +10,6 @@ class DemoApplicationTests {
     void contextLoads() {
     }
 
+    //... general springboot health tests unrelated to business logic
+
 }

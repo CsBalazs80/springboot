@@ -9,10 +9,12 @@ import lombok.ToString;
 @Setter
 @ToString
 @EqualsAndHashCode
-public class UserDTO {
+public class ClientDTO {
 
     private Long id;
     private String professionalEmail;
     private String fullName;
+
+    //More fields, may be different from Client, ClientMapper will do the conversion
     
 }

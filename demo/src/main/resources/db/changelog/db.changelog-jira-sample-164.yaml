@@ -1,3 +1,4 @@
+# id should refer jira/redmine etc... tickets
 databaseChangeLog:
   - changeSet:
       id: jira-sample-164-0
@@ -9,7 +10,7 @@ databaseChangeLog:
                   autoIncrement: true
                   constraints:
                     primaryKey: true
-                    primaryKeyName: user_pkey
+                    primaryKeyName: client_pkey
                   name: id
                   type: bigint
               - column:
@@ -18,4 +19,4 @@ databaseChangeLog:
               - column:
                   name: name
                   type: VARCHAR(255)
-            tableName: User
+            tableName: Client

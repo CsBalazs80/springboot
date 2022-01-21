@@ -14,44 +14,44 @@ import static org.assertj.core.api.Assertions.*;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace= AutoConfigureTestDatabase.Replace.NONE)
-class UserRepositoryTest {
+class ClientRepositoryTest {
 
     @Autowired
-    private ClientRepository userRepository;
+    private ClientRepository clientRepository;
 
     @Test
     void nonEmptyTest(){
-        assertThat(userRepository).isNotNull();
+        assertThat(clientRepository).isNotNull();
     }
 
     @Test
-    @Sql("createUser.sql")
+    @Sql("createClient.sql")
     void readCheck(){
         //Given SQL ran
         //When
-        List<Client> users = userRepository.getUserByName("Sandokan");
+        List<Client> clients = clientRepository.getClientByName("Sandokan");
         //Then
-        assertThat(users).isNotEmpty();
-        assertThat(users.get(0)).isNotNull();
-        assertThat(users.get(0).getEmail()).isEqualTo("sandokan@malay.com");
+        assertThat(clients).isNotEmpty();
+        assertThat(clients.get(0)).isNotNull();
+        assertThat(clients.get(0).getEmail()).isEqualTo("sandokan@malay.com");
     }
 
 
     @Test
-    @Sql("createUser.sql")
+    @Sql("createClient.sql")
     void modifyCheck(){
         //Given SQL ran
         //When
-        Client user = userRepository.findById(1L).orElse(null);
-        assertThat(user).isNotNull();
+        Client client = clientRepository.findById(1L).orElse(null);
+        assertThat(client).isNotNull();
 
-        user.setEmail("sandokan@america.com");
-        userRepository.save(user);
+        client.setEmail("sandokan@america.com");
+        clientRepository.save(client);
         //Then
-        assertThat(user).isNotNull();
-        assertThat(user.getEmail()).isEqualTo("sandokan@america.com");
+        assertThat(client).isNotNull();
+        assertThat(client.getEmail()).isEqualTo("sandokan@america.com");
     }
 
-
+    // test the other methods on demand
 
 }

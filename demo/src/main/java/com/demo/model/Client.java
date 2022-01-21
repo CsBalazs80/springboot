@@ -9,8 +9,8 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "User")
-public class User {
+@Table(name = "Client")
+public class Client {
 
     @Id
     @GeneratedValue
@@ -21,5 +21,7 @@ public class User {
 
     @Column
     private String name;
+
+    // ... More fields to be written
 
 }

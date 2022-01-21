@@ -1,0 +1,15 @@
+version: '3'
+services:
+  database:
+    image: postgres:10.10
+    volumes:
+      - postgres:/var/lib/postgresql
+    environment:
+      - POSTGRES_USER=dev
+      - POSTGRES_PASSWORD=Password
+      - POSTGRES_DB=persistent-storage
+    ports:
+      - 5432:5432
+
+volumes:
+  postgres:
